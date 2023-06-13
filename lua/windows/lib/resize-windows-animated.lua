@@ -63,7 +63,9 @@ function ResizeWindowsAnimated:load(winsdata)
       for _, d in ipairs(self.winsdata) do
          if d.delta_width then
             local width = d.initial_width + round(fraction * d.delta_width)
-            d.win:set_width(width)
+            if width then
+               d.win:set_width(width)
+            end
          end
          if d.delta_height then
             local height = d.initial_height + round(fraction * d.delta_height)
